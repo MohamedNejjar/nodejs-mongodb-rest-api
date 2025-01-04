@@ -1,0 +1,10 @@
+const Joi = require("@hapi/joi");
+module.exports.createProductSchema = Joi.object().keys({
+  name: Joi.string().required(),
+  brand: Joi.string().required(),
+  price: Joi.number().required().strict(),
+});
+module.exports.getAllProductSchema = Joi.object().keys({
+  skip: Joi.string(),
+  limit: Joi.string(),
+});
