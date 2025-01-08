@@ -4,6 +4,7 @@ const DOTenv = require("dotenv");
 const cors = require("cors");
 // require  route
 const productRout = require("./routes/productRoute.js");
+const userRoute = require("./routes/usersRoute.js");
 DOTenv.config();
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || "3000";
 //  post route
+app.use("/api", userRoute);
 app.use("/api", productRout);
 
 // const middleWare = (req, res, next) => {
