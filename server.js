@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || "3000";
 //  post route
-app.use("/api", userRoute);
-app.use("/api", productRout);
+app.use("/api/users", userRoute);
+app.use("/api/products", productRout);
 
 // const middleWare = (req, res, next) => {
 //   console.log("hello mohamed ");

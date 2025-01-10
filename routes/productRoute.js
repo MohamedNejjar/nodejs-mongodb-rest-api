@@ -3,14 +3,15 @@ const productControell = require("../controller/productController");
 const router = express.Router();
 const joiSchemaValidation = require("../middleware/joiSchemaValidation");
 const productSchema = require("../apiSchema/productSchema");
+const validationToken = require('../middleware/tokenValidation')
 router.post(
-  "/product",
+  "/",
   joiSchemaValidation.validBody(productSchema.createProductSchema),
   productControell.createProduct
 );
 
 router.get(
-  "/product",
+  "/",validationToken.validateToken,
   joiSchemaValidation.validQueryParams(productSchema.getAllProductSchema),
   productControell.getAllProduct
 );

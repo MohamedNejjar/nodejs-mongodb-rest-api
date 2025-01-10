@@ -9,5 +9,9 @@ route.post(
   userController.createUser
 );
 
-route.post("/login",joiSchemaValidation.validBody(userSchema.loginSchema))
-module.exports = route 
+route.post(
+  "/login",
+  joiSchemaValidation.validBody(userSchema.loginSchema),
+  userController.UserLogin
+);
+module.exports = route;
